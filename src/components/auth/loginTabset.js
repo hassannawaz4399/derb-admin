@@ -63,10 +63,10 @@ const LoginTabset = () => {
               <User />
               Login
             </Tab>
-            <Tab className="nav-link" onClick={(e) => clickActive(e)}>
+            {/* <Tab className="nav-link" onClick={(e) => clickActive(e)}>
               <Unlock />
               Register
-            </Tab>
+            </Tab> */}
           </TabList>
 
           <TabPanel>
@@ -129,7 +129,7 @@ const LoginTabset = () => {
                   Login
                 </Button>
               </div>
-              <div className="form-footer">
+              {/* <div className="form-footer">
                 <span>Or Login up with social platforms</span>
                 <ul className="social">
                   <li>
@@ -153,7 +153,7 @@ const LoginTabset = () => {
                     </a>
                   </li>
                 </ul>
-              </div>
+              </div> */}
             </Form>
           </TabPanel>
           <TabPanel>

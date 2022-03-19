@@ -25,43 +25,73 @@ export const MENUITEMS = [
     active: false,
   },
   {
-    title: "Products",
+    title: "Users",
+    icon: UserPlus,
+    type: "sub",
+    active: false,
+    children: [
+      { path: "/users/list-user", title: "User List", type: "link" },
+      // { path: "/users/create-user", title: "Create User", type: "link" },
+    ],
+  },
+  {
+    title: "Vendors",
+    icon: Users,
+    type: "sub",
+    active: false,
+    children: [
+      { path: "/vendors/list_vendors", title: "Vendor List", type: "link" },
+      { path: "/vendors/create-vendors", title: "Create Vendor", type: "link" },
+    ],
+  },
+  {
+    title: "Manage Category",
     icon: Box,
     type: "sub",
     active: false,
     children: [
       {
-        title: "Physical",
-        type: "sub",
-        active: false,
-        children: [
-          {
-            path: "/products/physical/category",
-            title: "Category",
-            type: "link",
-          },
-          {
-            path: "/products/physical/sub-category",
-            title: "Sub Category",
-            type: "link",
-          },
-          {
-            path: "/products/physical/product-list",
-            title: "Product List",
-            type: "link",
-          },
-          {
-            path: "/products/physical/product-detail",
-            title: "Product Detail",
-            type: "link",
-          },
-          {
-            path: "/products/physical/add-product",
-            title: "Add Product",
-            type: "link",
-          },
-        ],
+        path: "/products/physical/category",
+        title: "Category",
+        type: "link",
       },
+      {
+        path: "/products/physical/sub-category",
+        title: "Sub Category",
+        type: "link",
+      },
+      // {
+      //   title: "Physical",
+      //   type: "sub",
+      //   active: false,
+      //   children: [
+      //     {
+      //       path: "/products/physical/category",
+      //       title: "Category",
+      //       type: "link",
+      //     },
+      //     {
+      //       path: "/products/physical/sub-category",
+      //       title: "Sub Category",
+      //       type: "link",
+      //     },
+      //     // {
+      //     //   path: "/products/physical/product-list",
+      //     //   title: "Product List",
+      //     //   type: "link",
+      //     // },
+      //     // {
+      //     //   path: "/products/physical/product-detail",
+      //     //   title: "Product Detail",
+      //     //   type: "link",
+      //     // },
+      //     // {
+      //     //   path: "/products/physical/add-product",
+      //     //   title: "Add Product",
+      //     //   type: "link",
+      //     // },
+      //   ],
+      // },
       // {
       //     title: 'digital', type: 'sub', active: false, children: [
       //         { path: '/products/digital/digital-category', title: 'Category', type: 'link' },
@@ -79,23 +109,23 @@ export const MENUITEMS = [
     active: false,
     children: [
       { path: "/sales/orders", title: "Orders", type: "link" },
-      { path: "/sales/transactions", title: "Transactions", type: "link" },
+      // { path: "/sales/transactions", title: "Transactions", type: "link" },
     ],
   },
-  {
-    title: "Coupons",
-    icon: Tag,
-    type: "sub",
-    active: false,
-    children: [
-      { path: "/coupons/list-coupons", title: "List Coupons", type: "link" },
-      {
-        path: "/coupons/create-coupons",
-        title: "Create Coupons",
-        type: "link",
-      },
-    ],
-  },
+  // {
+  //   title: "Coupons",
+  //   icon: Tag,
+  //   type: "sub",
+  //   active: false,
+  //   children: [
+  //     { path: "/coupons/list-coupons", title: "List Coupons", type: "link" },
+  //     {
+  //       path: "/coupons/create-coupons",
+  //       title: "Create Coupons",
+  //       type: "link",
+  //     },
+  //   ],
+  // },
   //   {
   //     title: "Pages",
   //     icon: Clipboard,
@@ -123,71 +153,52 @@ export const MENUITEMS = [
   //       { path: "/menus/create-menu", title: "Create Menu", type: "link" },
   //     ],
   //   },
-  {
-    title: "Users",
-    icon: UserPlus,
-    type: "sub",
-    active: false,
-    children: [
-      { path: "/users/list-user", title: "User List", type: "link" },
-      { path: "/users/create-user", title: "Create User", type: "link" },
-    ],
-  },
-  {
-    title: "Vendors",
-    icon: Users,
-    type: "sub",
-    active: false,
-    children: [
-      { path: "/vendors/list_vendors", title: "Vendor List", type: "link" },
-      { path: "/vendors/create-vendors", title: "Create Vendor", type: "link" },
-    ],
-  },
-  {
-    title: "Translations",
-    icon: Chrome,
-    type: "sub",
-    children: [
-      {
-        path: "/localization/transactions",
-        title: "Translations",
-        type: "link",
-      },
-      //   {
-      //     path: "/localization/currency-rates",
-      //     title: "Currency Rates",
-      //     type: "link",
-      //   },
-      //   { path: "/localization/taxes", title: "Taxes", type: "link" },
-    ],
-  },
-  {
-    title: "Reports",
-    path: "/reports/report",
-    icon: BarChart,
-    type: "link",
-    active: false,
-  },
+
+  // {
+  //   title: "Translations",
+  //   icon: Chrome,
+  //   type: "sub",
+  //   children: [
+  //     {
+  //       path: "/localization/transactions",
+  //       title: "Translations",
+  //       type: "link",
+  //     },
+  //     //   {
+  //     //     path: "/localization/currency-rates",
+  //     //     title: "Currency Rates",
+  //     //     type: "link",
+  //     //   },
+  //     //   { path: "/localization/taxes", title: "Taxes", type: "link" },
+  //   ],
+  // },
+  // {
+  //   title: "Reports",
+  //   path: "/reports/report",
+  //   icon: BarChart,
+  //   type: "link",
+  //   active: false,
+  // },
   {
     title: "Settings",
     icon: Settings,
     type: "sub",
     children: [{ path: "/settings/profile", title: "Profile", type: "link" }],
   },
-  {
-    title: "Invoice",
-    path: "/invoice",
-    icon: Archive,
-    type: "link",
-    active: false,
-  },
-  {
-    title: "Notification",
-    path: "/invoice",
-    icon: Archive,
-    type: "link",
-    active: false,
-  },
+  // {
+  //   title: "Invoice",
+  //   path: "/invoice",
+  //   icon: Archive,
+  //   type: "link",
+  //   active: false,
+  // },
+  // {
+  //   title: "Notification",
+  //   path: "/invoice",
+  //   icon: Archive,
+  //   type: "link",
+  //   active: false,
+  // },
   {
     title: "Login",
     path: "/auth/login",
