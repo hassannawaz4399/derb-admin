@@ -1,0 +1,21 @@
+.product-image {
+  width: 40px;
+}
+
+.buttons-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.buttons-wrapper button {
+  border: none;
+  background: none;
+}
+
+.buttons-wrapper button.edit-btn {
+  color: green;
+}
+
+.buttons-wrapper button.delete-btn {
+  color: red;
+}
