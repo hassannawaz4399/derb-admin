@@ -270,7 +270,7 @@ const Datatable = ({ myData, myClass, multiSelectOption, pagination }) => {
           <thead>
             <tr>
               <th>#</th>
-              <th>Image</th>
+              {/* <th>Image</th> */}
               <th>Catagory Id</th>
               <th>Catagory Name</th>
               <th>Satus</th>
@@ -283,13 +283,13 @@ const Datatable = ({ myData, myClass, multiSelectOption, pagination }) => {
               return (
                 <tr key={index}>
                   <th scope="row">{index + 1}</th>
-                  <td>
+                  {/* <td>
                     <img
                       src="https://image.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg"
                       alt="product Image"
                       className="product-image"
                     />
-                  </td>
+                  </td> */}
                   <td>{category_id}</td>
                   <td>{category_name}</td>
                   <td>Delivered</td>

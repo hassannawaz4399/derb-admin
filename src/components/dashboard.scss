@@ -1,0 +1,42 @@
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+.btn {
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+.table-heading {
+  font-weight: 800;
+  font-size: 1rem;
+  margin-top: 4rem;
+}
+
+.orders-table {
+  width: 100%;
+  margin-top: 1.5rem;
+
+  thead {
+    background: orange;
+
+    tr {
+      td {
+        padding: 1rem;
+        font-size: 1rem;
+        font-weight: 800;
+      }
+    }
+  }
+
+  .table-body {
+    overflow-y: auto;
+
+    tr {
+      td {
+        padding: 1rem;
+        font-weight: 700;
+      }
+    }
+  }
+}

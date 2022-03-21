@@ -1,8 +1,7 @@
 import React, { Fragment, useState } from "react";
 import Breadcrumb from "../../common/breadcrumb";
 import "react-toastify/dist/ReactToastify.css";
-import { data } from "../../../assets/data/category";
-import Datatable from "../../common/datatable";
+import "../../users/User.scss";
 import {
   Button,
   Card,
@@ -45,8 +44,6 @@ const Category = () => {
     setOpen(false);
   };
 
-  console.log(catagoryImage);
-
   const onOpenModal = () => {
     setOpen(true);
   };
@@ -68,23 +65,16 @@ const Category = () => {
               </CardHeader>
               <CardBody>
                 <div className="btn-popup pull-right">
-                  <Button
-                    type="button"
-                    color="primary"
-                    onClick={onOpenModal}
-                    data-toggle="modal"
-                    data-original-title="test"
-                    data-target="#exampleModal"
-                  >
+                  <button className="addbtn" onClick={onOpenModal}>
                     Add Category
-                  </Button>
+                  </button>
                   <Modal isOpen={open} toggle={onCloseModal}>
                     <ModalHeader toggle={onCloseModal}>
                       <h5
                         className="modal-title f-w-600"
                         id="exampleModalLabel2"
                       >
-                        Add Physical Product
+                        Add Category
                       </h5>
                     </ModalHeader>
                     <ModalBody>
@@ -102,20 +92,6 @@ const Category = () => {
                             placeholder="Catagories"
                             value={catagoryName}
                             onChange={(e) => setCatagoryName(e.target.value)}
-                          />
-                        </FormGroup>
-                        <FormGroup>
-                          <Label
-                            htmlFor="message-text"
-                            className="col-form-label"
-                          >
-                            Category Image :
-                          </Label>
-                          <Input
-                            className="form-control"
-                            id="validationCustom02"
-                            type="file"
-                            onChange={(e) => setCatagoryImage(e.target.files)}
                           />
                         </FormGroup>
                       </Form>
@@ -140,13 +116,27 @@ const Category = () => {
                 </div>
                 <div className="clearfix"></div>
                 <div id="basicScenario" className="product-physical">
-                  <Datatable
-                    myData={data}
-                    multiSelectOption={false}
-                    pageSize={10}
-                    pagination={true}
-                    class="-striped -highlight"
-                  />
+                  <article className="tableoverflow">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th scope="col">No</th>
+                          <th scope="col">Catagory</th>
+                          <th scope="col">Subcatagory</th>
+                          <th scope="col">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="No">1</td>
+                          <td data-label="Product Name">Pew</td>
+                          <td data-label="Price">shdd</td>
+
+                          <td data-label="Action">wdquiy</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </article>
                 </div>
               </CardBody>
             </Card>

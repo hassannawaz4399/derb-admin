@@ -1,0 +1,190 @@
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+.btn {
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+.table-heading {
+  font-weight: 800;
+  font-size: 1rem;
+  margin-top: 4rem;
+}
+
+.orders-table {
+  width: 100%;
+  margin-top: 1.5rem;
+
+  thead {
+    background: orange;
+
+    tr {
+      td {
+        padding: 1rem;
+        font-size: 1rem;
+        font-weight: 800;
+      }
+    }
+  }
+
+  .table-body {
+    overflow-y: auto;
+
+    tr {
+      td {
+        padding: 1rem;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+.buttons-wrapper {
+  display: flex;
+  align-items: center;
+  margin-left: 2rem;
+}
+
+.buttons-wrapper button {
+  border: none;
+  background: none;
+}
+
+.buttons-wrapper button.edit-btn {
+  color: green;
+  cursor: pointer;
+}
+
+.buttons-wrapper button.delete-btn {
+  color: red;
+}
+.addbtn {
+  background: #ffb602 !important;
+  color: white;
+  border: 0.1rem solid #ffb602;
+
+  padding: 1rem;
+  border-radius: 0.5rem;
+
+  cursor: pointer;
+
+  &:hover {
+    background: white !important;
+    color: black;
+  }
+}
+.tableoverflow {
+  height: 40rem;
+  overflow: auto;
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: red;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
+
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  table-layout: fixed;
+
+  @media (max-width: 500px) {
+    border: 0;
+  }
+
+  thead {
+    @media (max-width: 500px) {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+
+    tr {
+      background: #ffb602;
+
+      th {
+        color: white;
+        font-weight: 600;
+      }
+    }
+  }
+
+  tr {
+    border: 1px solid #ddd;
+    padding: 0.35em;
+
+    @media (max-width: 500px) {
+      border-bottom: 3px solid #ddd;
+      display: block;
+      margin-bottom: 0.625em;
+    }
+  }
+
+  td {
+    @media (max-width: 500px) {
+      position: relative;
+      border-bottom: 1px solid #ddd;
+      display: block;
+      font-size: 0.8em;
+      text-align: right;
+      width: 400px !important;
+
+      &::before {
+        display: flex;
+
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 7rem;
+        padding: 0.3rem;
+        height: 100%;
+        background: #ffb602;
+
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
+
+  th,
+  td {
+    padding: 0.625em;
+    text-align: center;
+    width: 400px !important;
+  }
+
+  th {
+    font-size: 0.85em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+}

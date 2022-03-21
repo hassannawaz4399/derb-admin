@@ -55,11 +55,11 @@ export const MENUITEMS = [
         title: "Category",
         type: "link",
       },
-      {
-        path: "/products/physical/sub-category",
-        title: "Sub Category",
-        type: "link",
-      },
+      // {
+      //   path: "/products/physical/sub-category",
+      //   title: "Sub Category",
+      //   type: "link",
+      // },
       // {
       //   title: "Physical",
       //   type: "sub",
