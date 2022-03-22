@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import Breadcrumb from "../../common/breadcrumb";
 import "react-toastify/dist/ReactToastify.css";
 import "../../users/User.scss";
@@ -22,17 +22,41 @@ import {
 import axios from "axios";
 
 const Category = () => {
-  const url = "http://localhost:5000/api/categories";
+  const [categories, setCatagories] = useState([]);
   const [open, setOpen] = useState(false);
-  const [catagoryName, setCatagoryName] = useState("");
-  const [catagoryImage, setCatagoryImage] = useState("");
+  const [id, setid] = useState();
+  const onOpenModal = (e) => {
+    setOpen(true);
+    setid(e);
+  };
 
-  const postCatagory = async (e) => {
-    e.preventDefault();
+  const onCloseModal = () => {
+    setOpen(false);
+  };
+
+  const url = `${process.env.REACT_APP_BASE_URL}/categories`;
+
+  useEffect(() => {
+    getCatagories();
+  }, []);
+
+  const getCatagories = async () => {
+    await axios
+      .get(url)
+      .then((res) => {
+        setCatagories(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const [catagoryName, setCatagoryName] = useState("");
+
+  const postCatagory = async () => {
     await axios
       .post(url, {
         category_name: catagoryName,
-        image: catagoryImage,
       })
       .then(() => {
         alert("Catagory Added");
@@ -44,12 +68,15 @@ const Category = () => {
     setOpen(false);
   };
 
-  const onOpenModal = () => {
-    setOpen(true);
-  };
-
-  const onCloseModal = () => {
-    setOpen(false);
+  const removeCatagoryies = async (id) => {
+    axios
+      .delete(`${url}/${id}`)
+      .then(() => {
+        getCatagories();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -122,18 +149,40 @@ const Category = () => {
                         <tr>
                           <th scope="col">No</th>
                           <th scope="col">Catagory</th>
-                          <th scope="col">Subcatagory</th>
+                          <th scope="col">Created Date</th>
                           <th scope="col">Action</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td data-label="No">1</td>
-                          <td data-label="Product Name">Pew</td>
-                          <td data-label="Price">shdd</td>
+                        {categories.map((data, index) => {
+                          return (
+                            <tr key={index}>
+                              <td data-label="No">{data?.category_id}</td>
+                              <td data-label="Category Name">
+                                {data?.category_name}
+                              </td>
+                              <td data-label="Created Date">
+                                {data?.created_at}
+                              </td>
 
-                          <td data-label="Action">wdquiy</td>
-                        </tr>
+                              <td data-label="Action">
+                                <article className="buttons-wrapper">
+                                  <button className="edit-btn">
+                                    <i className="far fa-edit"></i>
+                                  </button>
+                                  <button
+                                    className="delete-btn"
+                                    onClick={() =>
+                                      removeCatagoryies(data.category_id)
+                                    }
+                                  >
+                                    <i className="far fa-trash-alt"></i>
+                                  </button>
+                                </article>
+                              </td>
+                            </tr>
+                          );
+                        })}
                       </tbody>
                     </table>
                   </article>

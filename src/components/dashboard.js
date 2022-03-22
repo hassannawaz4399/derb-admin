@@ -1,8 +1,9 @@
-import React, { Fragment } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import Breadcrumb from "./common/breadcrumb";
 import "./users/User.scss";
 import { Navigation, Box, MessageSquare, Users } from "react-feather";
 import CountUp from "react-countup";
+import axios from "axios";
 import "./dashboard.scss";
 import {
   Card,
@@ -15,6 +16,25 @@ import {
 } from "reactstrap";
 
 const Dashboard = () => {
+  const [user, setUser] = useState([]);
+
+  const url = `${process.env.REACT_APP_BASE_URL}/users`;
+
+  useEffect(() => {
+    getUser();
+  }, []);
+
+  const getUser = async () => {
+    await axios
+      .get(url)
+      .then((res) => {
+        setUser(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <Fragment>
       <Breadcrumb title="Dashboard" parent="Dashboard" />
@@ -110,20 +130,24 @@ const Dashboard = () => {
                   <table>
                     <thead>
                       <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Catagory</th>
-                        <th scope="col">Subcatagory</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Role</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td data-label="No">1</td>
-                        <td data-label="Product Name">Pew</td>
-                        <td data-label="Price">shdd</td>
+                      {user.map((data, index) => {
+                        return (
+                          <tr key={index}>
+                            <td data-label="Name">{data?.first_name}</td>
+                            <td data-label="Email">{data?.email}</td>
+                            <td data-label="Phone-no">{data?.mobile}</td>
 
-                        <td data-label="Action">wdquiy</td>
-                      </tr>
+                            <td data-label="Role">{data?.role}</td>
+                          </tr>
+                        );
+                      })}
                     </tbody>
                   </table>
                 </article>
