@@ -205,3 +205,33 @@ table {
   font-size: 1rem;
   font-weight: 700;
 }
+
+.setting {
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+  column-gap: 1rem;
+  row-gap: 1rem;
+
+  margin-bottom: 1rem;
+}
+
+.updatebtn {
+  display: flex;
+  justify-content: end;
+
+  .btn1 {
+    background: #ffb602 !important;
+    color: white;
+    border: 0.1rem solid #ffb602;
+
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+
+    cursor: pointer;
+
+    &:hover {
+      background: white !important;
+      color: black;
+    }
+  }
+}

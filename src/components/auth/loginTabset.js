@@ -9,7 +9,7 @@ import { setUserSession } from "../utils/common";
 
 const LoginTabset = () => {
   const history = useHistory();
-  const url = "http://localhost:5000/api/users/login";
+  const url = `${process.env.REACT_APP_BASE_URL}/users/login`;
   const [error, setError] = useState(null);
   const [login, setLogin] = useState({
     email: "",
@@ -28,15 +28,16 @@ const LoginTabset = () => {
     await axios
       .post(url, login)
       .then((res) => {
+        console.log(res.data.data.picture);
         if (res.data.message == "Login successfully") {
-          console.log(res.data);
           setUserSession(
             res.data.data.first_name,
+            res.data.data.picture,
             res.data.token,
             res.data.data.id
           );
 
-          history.push(`${process.env.PUBLIC_URL}/dashboard`);
+          history.push(`/dashboard`);
         } else {
           setError(res.data.message);
         }
@@ -111,12 +112,12 @@ const LoginTabset = () => {
                       type="checkbox"
                     />
                     Reminder Me{" "}
-                    <span className="pull-right">
+                    {/* <span className="pull-right">
                       {" "}
                       <a href="/#" className="btn btn-default forgot-pass p-0">
                         lost your password
                       </a>
-                    </span>
+                    </span> */}
                   </Label>
                 </div>
               </div>
